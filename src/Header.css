@@ -1,0 +1,66 @@
+#header {
+  width: 1280px;
+  height: 64px;
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+}
+.header-container {
+  width: 1280px;
+  height: 64px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.search-box-container {
+  width: 680px;
+  position: absolute;
+  margin-left: 240px;
+  height: 40px;
+  display: flex;
+}
+.liner-logo {
+  background-size: 32px;
+}
+.search-box {
+  -webkit-box-sizing: border-box;
+  width: 680px;
+  border: none;
+  border-radius: 8px;
+  background-color: #eef1f4;
+  font-family: "Roboto", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC",
+    sans-serif;
+  line-height: 1.2;
+  padding: 10px 54px 11px 16px;
+  font-size: 16px;
+}
+.search-box::placeholder {
+  opacity: 0.3;
+  font-size: 16px;
+  color: #333333;
+}
+.search-img {
+  position: absolute;
+  top: 8px;
+  right: 15px;
+}
+.right-buttons {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 0;
+}
+.upgrade-button {
+  width: 100px;
+  height: 32px;
+  margin: 4px 24px 4px 212px;
+  border: none;
+  border-radius: 8px;
+  background-color: #33cac6;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC",
+    sans-serif;
+  color: #fff;
+}

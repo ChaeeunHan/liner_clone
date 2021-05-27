@@ -1,0 +1,25 @@
+.menu-container {
+  position: absolute;
+  top: 98px;
+}
+.menu-inactive {
+  color: #787d86;
+}
+
+.menu-content {
+  width: 232px;
+  height: 51px;
+  border-radius: 8px;
+  align-items: center;
+  margin: auto 0;
+  display: flex;
+  padding: 0 16px;
+}
+.menu-active {
+  color: #00bdb8;
+  font-weight: 700;
+  background-color: #f6f8fa;
+}
+.menu-content:hover {
+  background-color: #f6f8fa;
+}
