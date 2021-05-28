@@ -20,3 +20,159 @@
   width: 712px;
   display: flex;
 }
+.page-header-container {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  position: sticky;
+  top: 64px;
+  z-index: 2;
+  height: 40px;
+  margin-bottom: 16px;
+}
+.page-header {
+  display: flex;
+  align-items: center;
+  width: 681px;
+  height: 40px;
+  font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC",
+    sans-serif;
+  font-weight: 700;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  font-size: 32px;
+  color: #272b31;
+  z-index: 2;
+}
+.page-subtitle {
+  font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC",
+    sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.35px;
+  color: #787d86;
+  margin-bottom: 24px;
+}
+
+.information-button {
+  width: 32px;
+  height: 32px;
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-image: url(https://getliner.com/src/images/info.svg);
+  border-radius: 50%;
+  z-index: 7;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+  height: 32px;
+  margin-left: 9px;
+}
+.information-button:hover {
+  background-color: #f6f8fa;
+}
+
+.language-container {
+  justify-self: flex-end;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  align-self: flex-end;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+.info-popup {
+  top: -24px;
+  margin-left: 60px;
+  z-index: 50;
+  width: 329px;
+  height: 280px;
+  position: absolute;
+  display: flex;
+}
+
+.info-triangle {
+  width: 19px;
+  height: 19px;
+  background-color: #52565d;
+  position: absolute;
+  top: 30px;
+  left: -9px;
+  transform: rotate(45deg);
+  z-index: 2;
+  border-bottom-left-radius: 4px;
+  border-bottom: 1px solid #969aa2;
+  border-left: 1px solid #969aa2;
+}
+
+.info-rectangle {
+  justify-self: flex-end;
+  width: 320px;
+  height: 280px;
+  box-shadow: 0 8px 20px 0 rgb(39 43 49 / 20%);
+  border: 1px solid #969aa2;
+  background-color: #52565d;
+  border-radius: 8px;
+  z-index: 1;
+  position: relative;
+}
+.close-button {
+  background-image: url(https://getliner.com/src/images/close-be-comment.svg);
+  background-repeat: no-repeat;
+  background-size: 24px 24px;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  z-index: 3;
+}
+.lottie-container {
+  width: 100%;
+  height: 160px;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+}
+
+.info-text-container {
+  margin-top: -10px;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 15px 17px;
+}
+.info-title {
+  font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC",
+    sans-serif;
+  font-weight: 700;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  font-size: 16px;
+  color: #fff;
+}
+
+.info-content {
+  margin-top: 8px;
+  font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC",
+    sans-serif;
+  font-weight: 400;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 20px;
+  font-size: 14px;
+  color: #fff;
+}
