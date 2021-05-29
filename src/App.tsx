@@ -19,16 +19,22 @@ const App = () => {
       <div className="App">
         <Header />
         <Router>
-          <Menu />
-          <div className='main-content'>
-            <Switch>
-              <Route exact={true} path='/' component={Foryou}></Route>
-              <Route path='/home' component={Foryou}></Route>
-              <Route path='/highlights' component={MyHighlights}></Route>
-              <Route path='/more' component={More}></Route>
-            </Switch>
+          <div className='home-left-side'>
+            <Menu />
           </div>
-          <RightMenu />
+          <div className='home-right-side'>
+            <div className='page'>
+              <Switch>
+                <Route exact={true} path='/' component={Foryou}></Route>
+                <Route path='/home' component={Foryou}></Route>
+                <Route path='/highlights' component={MyHighlights}></Route>
+                <Route path='/more' component={More}></Route>
+              </Switch>
+            </div>
+            <div className='right-menu'>
+              <RightMenu/>
+            </div>
+          </div>
         </Router>
       </div>
   );

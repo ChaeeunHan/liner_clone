@@ -14,10 +14,10 @@
   align-items: center;
 }
 .search-box-container {
-  width: 680px;
+  width: 800px;
+  min-height: 40px;
   position: absolute;
-  margin-left: 240px;
-  height: 40px;
+  left: 240px;
   display: flex;
 }
 .liner-logo {
@@ -34,6 +34,7 @@
   line-height: 1.2;
   padding: 10px 54px 11px 16px;
   font-size: 16px;
+  margin-left: 12px;
 }
 .search-box::placeholder {
   opacity: 0.3;
@@ -43,7 +44,7 @@
 .search-img {
   position: absolute;
   top: 8px;
-  right: 15px;
+  right: 120px;
 }
 .right-buttons {
   display: flex;
