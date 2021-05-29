@@ -1,0 +1,70 @@
+.summary {
+  position: relative;
+  display: inline-flex;
+  margin-left: 16px;
+}
+.pages,
+.highlights {
+  font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC",
+    sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  color: #787d86;
+}
+.middleDot {
+  background-image: url(https://getliner.com/src/images/dot.svg);
+  width: 2px;
+  height: 2px;
+  align-self: center;
+}
+.pages {
+  margin-right: 10px;
+}
+.highlights {
+  margin-left: 10px;
+}
+.myhighlights-buttons-container {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px 0 0;
+  z-index: 1;
+  margin-top: 40px;
+  width: 712px;
+  height: 40px;
+  background-color: #fff;
+}
+.tab-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 16px;
+}
+.highlight-button,
+.tags-button {
+  padding: 11px 16px;
+  border-radius: 8px;
+  font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC",
+    sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.35px;
+  margin-right: 8px;
+}
+.highlight-button {
+  background-color: #eef1f4;
+  color: #52565d;
+}
+.tags-button:hover {
+  background-color: #eef1f4;
+  color: #52565d;
+}
