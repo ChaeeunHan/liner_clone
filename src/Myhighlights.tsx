@@ -10,6 +10,7 @@ import Lottie from 'react-lottie';
 import infoAnimation from './lotties/myhighlights.json';
 import './Myhighlights.css';
 import RightMenu_HL from './RightMenu_HL';
+import Modal from './Modal';
 
 interface MyContent{
   id: string,
@@ -59,10 +60,22 @@ const Myhighlights = () => {
   const handleMore = () => {
     setMoreClicked(!moreClicked);
   }
+  const [ filterModalOpen, setFilterModalOpen ] = useState(false);
+  const openFilterModal = () => {
+      setFilterModalOpen(true);
+  }
+  const closeFilterModal = () => {
+      setFilterModalOpen(false);
+  }
   return (
     <div className='home-right-side'>
       <div className='page'>
         <div className='page-content'>
+          <Modal open={ filterModalOpen } close={ closeFilterModal } header="Filter">
+            <div className='filter-title'>
+              Tags
+            </div>
+          </Modal>
           <div className='myhighlight-header-container'>
             <div className='sticky-header'>
               <div className='page-header'>
@@ -114,7 +127,7 @@ const Myhighlights = () => {
             </div>
             <div className='filter-container'>
               <div className='filter-button-container'>
-                <button className='filter-button'/>
+                <button className='filter-button' onClick={openFilterModal}/>
               </div>
               <div className='search-container'>
                 <div className='input-container'>
