@@ -113,6 +113,13 @@ button {
   padding: 0;
   cursor: pointer;
 }
+input {
+  border: none;
+  background-color: transparent;
+}
+input:focus {
+  outline: none;
+}
 .info-popup {
   top: -24px;
   margin-left: 60px;
@@ -122,7 +129,6 @@ button {
   position: absolute;
   display: flex;
 }
-
 .info-triangle {
   width: 19px;
   height: 19px;
@@ -319,15 +325,16 @@ button {
   position: relative;
   height: 32px;
 }
-.main-content-button .save,
-.main-content-button .share,
-.main-content-button .more {
+.main-content-button button {
   width: 32px;
   height: 32px;
   background-size: 24px;
   background-repeat: no-repeat;
   background-position: 50%;
   border-radius: 50%;
+}
+.main-content-button button:hover {
+  background-color: #f6f8fa;
 }
 .main-content-button .save {
   background-image: url(https://getliner.com/src/images/save.svg);
@@ -337,6 +344,9 @@ button {
 }
 .main-content-button .more {
   background-image: url(https://getliner.com/src/images/more-light.svg);
+}
+.main-content-button .export {
+  background-image: url(https://getliner.com/src/images/export-header.svg);
 }
 .main-content-seperator {
   height: 8px;

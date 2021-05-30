@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Lottie from 'react-lottie';
 import infoAnimation from './lotties/home_signal.json';
 import './Foryou.css';
+import RightMenu_FY from './RightMenu_FY';
 
 interface Language{
   lang: string;
@@ -76,109 +77,119 @@ const Foryou = () => {
     }
   ]
   return (
-    <div className='page-content'>
-      <div className='page-header-container'>
-        <div className='sticky-header'>
-          <div className='page-header'>
-            For You
-            {infoClicked ? (
-              //info open
-              <div>
-                <button className='information-button' onClick={e => handleInfo()}/>
-                <div className='info-popup'>
-                  <div className='info-triangle'/>
-                  <div className='info-rectangle'>
-                    <button className='close-button' onClick={e=>handleInfo()}/>
-                    <div className='lottie-container'>
-                      <Lottie 
-                        options={defaultOptions}
-                      />
-                    </div>
-                    <div className='info-text-container'>
-                      <div className='info-title'>For You</div>
-                      <div className='info-content'>We recommend you pages you'll love and need. The more you highlight, the smarter our algorithm gets.</div>
+    <div className='home-right-side'>
+      <div className='page'>
+        <div className='page-content'>
+          <div className='page-header-container'>
+            <div className='sticky-header'>
+              <div className='page-header'>
+                For You
+                {infoClicked ? (
+                  //info open
+                  <div>
+                    <button className='information-button' onClick={e => handleInfo()}/>
+                    <div className='info-popup'>
+                      <div className='info-triangle'/>
+                      <div className='info-rectangle'>
+                        <button className='close-button' onClick={e=>handleInfo()}/>
+                        <div className='lottie-container'>
+                          <Lottie 
+                            options={defaultOptions}
+                          />
+                        </div>
+                        <div className='info-text-container'>
+                          <div className='info-title'>For You</div>
+                          <div className='info-content'>We recommend you pages you'll love and need. The more you highlight, the smarter our algorithm gets.</div>
+                        </div>
+                      </div>
+                      
                     </div>
                   </div>
-                  
+                ):(//info closed
+                  <button className='information-button' onClick={e => handleInfo()}/>
+                )}
+                
+                <div className='language-container'>
+                  {languageClicked ? (
+                    //language dropdown open
+                    <div>
+                      <button className='language-button button' onClick={e => handleLang()}>
+                        Language
+                        <div className='set-language-button close'></div>
+                      </button>
+                      <div className='language-dropdown'>
+                        <ul className='dropdown'>
+                          <div className='dropdown-header'>Select for feed</div>
+                          {languagesChecked.map((item)=>{
+                            if(item.clicked){
+                              return(
+                                <li className='dropdown-content checked' onClick={() => handleLangCheck(item.lang)}>
+                                  {item.lang}
+                                  <div className='checked-img'></div>
+                                </li>
+                              )
+                            }else{
+                              return(
+                                <li className='dropdown-content' onClick={() => handleLangCheck(item.lang)}>
+                                  {item.lang}
+                                </li>
+                              )}
+                          })}
+                        </ul>
+                      </div>
+                    </div>
+                  ):( //language dropdown closed
+                    <div>
+                      <button className='language-button button' onClick={e => handleLang()}>
+                        Language
+                        <div className='set-language-button open'></div>
+                      </button>
+                    </div>
+                  )}
                 </div>
               </div>
-            ):(//info closed
-              <button className='information-button' onClick={e => handleInfo()}/>
-            )}
-            <div className='language-container'>
-              {languageClicked ? (
-                //language dropdown open
-                <div>
-                  <button className='language-button button' onClick={e => handleLang()}>
-                    Language
-                    <div className='set-language-button close'></div>
-                  </button>
-                  <div className='language-dropdown'>
-                    <ul className='dropdown'>
-                      <div className='dropdown-header'>Select for feed</div>
-                      {languagesChecked.map((item)=>{
-                        if(item.clicked){
-                          return(
-                            <li className='dropdown-content checked' onClick={() => handleLangCheck(item.lang)}>
-                              {item.lang}
-                              <div className='checked-img'></div>
-                            </li>
-                          )
-                        }else{
-                          return(
-                            <li className='dropdown-content' onClick={() => handleLangCheck(item.lang)}>
-                              {item.lang}
-                            </li>
-                          )}
-                      })}
-                    </ul>
-                  </div>
-                </div>
-              ):( //language dropdown closed
-                <div>
-                  <button className='language-button button' onClick={e => handleLang()}>
-                    Language
-                    <div className='set-language-button open'></div>
-                  </button>
-                </div>
-              )}
             </div>
+          </div>
+          <div className='page-subtitle'>Picked by LINER, just for you</div>
+          <div className='main-contents'>
+            {mainContents.map((item)=>{
+              return(
+                <div className='main-content-container'>
+                  {item.tags!==undefined && 
+                    <div className='main-content-tags-container'>
+                      {item.tags.map((tag)=>{
+                          return(<div className='main-content-tag'>{tag}</div>)
+                      })}
+                    </div>
+                  }
+                  <div className='main-content-upside'>
+                    <div className='main-content-text'>
+                      <div className='main-content-title'>{item.title}</div>
+                      <div className='main-content-highlight'>{item.highlight}</div>
+                    </div>
+                    {item.img!==undefined &&
+                      <img className='main-content-img' src={item.img}/>
+                    }
+                  </div>
+                  <div className='main-content-downside'>
+                    <div className='main-content-source-container'>
+                      <img className='main-content-srcImg' src={item.sourceImg}/>
+                      <a className='main-content-url' href={item.url}>{item.url.split('/')[2]}</a>
+                    </div>
+                    <div className='main-content-button-container'>
+                      <div className='main-content-button'><button className='save'/></div>
+                      <div className='main-content-button'><button className='share'/></div>
+                      <div className='main-content-button'><button className='more'/></div>
+                    </div>
+                  </div>
+                  <div className='main-content-seperator'/>
+                </div>
+          )})}
           </div>
         </div>
       </div>
-      <div className='page-subtitle'>Picked by LINER, just for you</div>
-      <div className='main-contents'>
-        {mainContents.map((item)=>{
-          return(
-            <div className='main-content-container'>
-              {item.tags!==undefined && 
-                <div className='main-content-tags-container'>
-                  {item.tags.map((tag)=>{
-                      return(<div className='main-content-tag'>{tag}</div>)
-                  })}
-                </div>
-              }
-              <div className='main-content-upside'>
-                <div className='main-content-text'>
-                  <div className='main-content-title'>{item.title}</div>
-                  <div className='main-content-highlight'>{item.highlight}</div>
-                </div>
-                <img className='main-content-img' src={item.img}/>
-              </div>
-              <div className='main-content-downside'>
-                <div className='main-content-source-container'>
-                  <img className='main-content-srcImg' src={item.sourceImg}/>
-                  <a className='main-content-url' href={item.url}>{item.url.split('/')[2]}</a>
-                </div>
-                <div className='main-content-button-container'>
-                  <div className='main-content-button'><button className='save'/></div>
-                  <div className='main-content-button'><button className='share'/></div>
-                  <div className='main-content-button'><button className='more'/></div>
-                </div>
-              </div>
-              <div className='main-content-seperator'/>
-            </div>
-      )})}
+      <div className='right-menu'>
+        <RightMenu_FY/>
       </div>
     </div>
   );

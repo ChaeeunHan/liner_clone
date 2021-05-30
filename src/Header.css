@@ -41,7 +41,7 @@
   font-size: 16px;
   color: #333333;
 }
-.search-img {
+.search-box-container .search-img {
   position: absolute;
   top: 8px;
   right: 120px;

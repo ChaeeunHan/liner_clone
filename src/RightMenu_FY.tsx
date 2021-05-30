@@ -16,7 +16,7 @@ interface Tag{
   tag: string;
 }
 
-const RightMenu = () => {
+const RightMenu_FY = () => {
   const keywordTags : KeywordTag[] = [
     { id: 0, tag: '#sharing'},
     { id: 1, tag: '#free'},
@@ -35,50 +35,52 @@ const RightMenu = () => {
     { id: 3, title:'Times Tables Rock Stars: Play', source:'play.ttrockstars.com'},
     { id: 4, title:'ongMaker - Chrome Music Lab', source:'musiclab.chromeexperiments.com'},
   ]
+  let thisPage: string = window.location.href.split('/')[3];
   return (
     <div className='rightmenu-container'>
-      <div className='trending-container'>
-        <div className='trending-title'>Trending Keywords</div>
-        <div className='border'/>
-        <div className='trending-content'>
-          <div className='keyword-tag-list'>
-            {keywordTags.map((item)=>{
-              return(
-                <button className='tag'>{item.tag}</button>
-              )
-            })}
+      <div className='highlights-rightmenu'>
+        <div className='trending-container'>
+          <div className='trending-title'>Trending Keywords</div>
+          <div className='border'/>
+          <div className='trending-content'>
+            <div className='keyword-tag-list'>
+              {keywordTags.map((item)=>{
+                return(
+                  <button className='tag'>{item.tag}</button>
+                )
+              })}
+            </div>
           </div>
         </div>
-      </div>
-      <div className='trending-container'>
-        <div className='trending-title'>Trending Pages</div>
-        <div className='border'/>
-        <div className='trending-content'>
-          {trendPages.map((item)=>{
-            console.log(item.tags)
-            if(item.tags !== undefined){
-              return(
-              <div className='pages-content'>
-                <div className='pages-tag-list'>
-                  {item.tags?.map((t)=>{
-                    return(
-                      <div className='tag'>{t.tag}</div>
-                  )})}
-                </div>
-                <div className='title'>{item.title}</div>
-                <div className='source'>{item.source}</div>
-              </div>
-            )} else{
-              return(
+        <div className='trending-container'>
+          <div className='trending-title'>Trending Pages</div>
+          <div className='border'/>
+          <div className='trending-content'>
+            {trendPages.map((item)=>{
+              if(item.tags !== undefined){
+                return(
                 <div className='pages-content'>
+                  <div className='pages-tag-list'>
+                    {item.tags?.map((t)=>{
+                      return(
+                        <div className='tag'>{t.tag}</div>
+                    )})}
+                  </div>
                   <div className='title'>{item.title}</div>
                   <div className='source'>{item.source}</div>
                 </div>
-              )}
-          })}
-          <div className='show-more'>
-            Show More
-            <img src='https://getliner.com/src/images/expand.svg'/>
+              )} else{
+                return(
+                  <div className='pages-content'>
+                    <div className='title'>{item.title}</div>
+                    <div className='source'>{item.source}</div>
+                  </div>
+                )}
+            })}
+            <div className='show-more'>
+              Show More
+              <img src='https://getliner.com/src/images/expand.svg'/>
+            </div>
           </div>
         </div>
       </div>
@@ -86,4 +88,4 @@ const RightMenu = () => {
   );
 };
 
-export default RightMenu;
+export default RightMenu_FY;
