@@ -35,7 +35,6 @@
   margin-left: 24px;
   margin-top: 40px;
 }
-
 .page-content {
   position: relative;
 }
@@ -119,6 +118,18 @@ input {
 }
 input:focus {
   outline: none;
+}
+.circular-button:hover {
+  background-color: #f6f8fa;
+  border-radius: 50%;
+}
+.grey-border-button {
+  border-radius: 8px;
+  border: 1px solid #dde1e7;
+  background-color: #fff;
+  color: #787d86;
+  font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC",
+    sans-serif;
 }
 .info-popup {
   top: -24px;

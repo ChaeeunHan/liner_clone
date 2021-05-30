@@ -1,6 +1,6 @@
 .rightmenu-container {
   float: right;
-  position: relative;
+  position: fixed;
 }
 .trending-container {
   width: 320px;

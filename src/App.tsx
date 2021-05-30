@@ -11,6 +11,7 @@ import Header from './Header';
 import Menu from './Menu';
 import Foryou from './Foryou';
 import MyHighlights from './Myhighlights';
+import Detail from './Detail';
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
             <Route exact={true} path='/' component={Foryou}></Route>
             <Route path='/home' component={Foryou}></Route>
             <Route path='/highlights' component={MyHighlights}></Route>
+            <Route path='/detail/:id' component={Detail}></Route>
           </Switch>
         </Router>
       </div>

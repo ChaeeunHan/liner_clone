@@ -3,6 +3,7 @@ import Lottie from 'react-lottie';
 import infoAnimation from './lotties/home_signal.json';
 import './Foryou.css';
 import RightMenu_FY from './RightMenu_FY';
+import { NavLink } from 'react-router-dom';
 
 interface Language{
   lang: string;
@@ -10,6 +11,7 @@ interface Language{
 }
 
 interface Content{
+  id: string;
   title: string;
   highlight: string;
   url: string;
@@ -58,6 +60,7 @@ const Foryou = () => {
   }
   const mainContents: Content[] =[
     {
+      id: '2004',
       title: "Manacher 알고리즘 | ialy's blog - 문자열 매칭 알고리즘",
       highlight: '위 결과만 보면 이 알고리즘에는 두 가지 문제점이 있는데, 첫 번째는 어떤 위치를 중심으로만 고려하므로 길이가 홀수인 회문만 구할 수 있다는 점이고, 두 번째는 여기서 구한 결과가 회문의 한쪽 길이만 구하기 때문에 결과 숫자가 직관적이지 않을 수 있다는 점이다. 그러나 하나의 트릭으로 이 두 문제점을 모두 해결할 수 있다. 바로 각 문자 앞뒤에 특수 문자를 끼워넣는 것이다. 예를 들어 원래 문자열이 bananaabananaa bananaa 였다면 @b@a@n@a@n@a@a@@b@a@n@a@n@a@a@ @b@a@n@a@n@a@a@ 에 위 알고리즘을 적용하면 된다. 그러면 결과가 [0,1,0,1,0,3,0,5,0,3,0,1,2,1,0][0,1,0,1,0,3,0,5,0,3,0,1,2,1,0] [0, 1, 0, 1, 0, 3, 0, 5, 0, 3, 0, 1, 2, 1, 0] 으로, 끼워둔 특수 문자에서는 짝수 회문의 길이를, 원래 문자에서는 홀수 회문의 길이를 구할 수 있다',
       url: 'https://ialy1595.github.io/post/manacher',
@@ -66,6 +69,7 @@ const Foryou = () => {
       sourceImg:'https://ialy1595.github.io/favicon.ico',
     },
     {
+      id: '2486',
       title: "[Python] __str__와 __repr__의 차이 살펴보기",
       highlight: '__str__의 본질적인 목적은 객체를 ‘표현’하는 것(representation)에 있다기보다는 추가적인 가공이나 다른 데이터와 호환될 수 있도록 문자열화하는 데 있다고 하겠다',
       url: 'https://shoark7.github.io/programming/python/difference-between-__repr__-vs-__str__',
@@ -164,7 +168,7 @@ const Foryou = () => {
                   }
                   <div className='main-content-upside'>
                     <div className='main-content-text'>
-                      <div className='main-content-title'>{item.title}</div>
+                      <NavLink to={`detail/${item.id}`}><div className='main-content-title'>{item.title}</div></NavLink>
                       <div className='main-content-highlight'>{item.highlight}</div>
                     </div>
                     {item.img!==undefined &&

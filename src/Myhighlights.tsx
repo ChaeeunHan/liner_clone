@@ -1,10 +1,18 @@
 import React, { useState, CSSProperties } from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Switch,
+  NavLink
+} from 'react-router-dom';
 import Lottie from 'react-lottie';
 import infoAnimation from './lotties/myhighlights.json';
 import './Myhighlights.css';
 import RightMenu_HL from './RightMenu_HL';
 
 interface MyContent{
+  id: string,
   title: string;
   highlight: Highlight[];
   url: string;
@@ -30,6 +38,7 @@ const Myhighlights = () => {
   let highlightColor={borderColor: 'rgb(0, 0, 0)'};
   const mainContents: MyContent[] =[
     {
+      id: '1000',
       title: "CSS: 선택자(Selector) 이해",
       highlight: [{color:'rgb(255, 255, 131)',content:'한 페이지 내에서 여러 번 반복될 필요가 있는 스타일은 클래스 선택자를 사용하고, 단 한번 유일하게 적용될 스타일은 ID선택자를 사용하는 것이 좋습니다'},{color:'rgb(255, 255, 131)',content:'ID선택자의 우선순위가 클래스 선택자의 우선순위보다 높습니다.'}],
       url: 'https://www.nextree.co.kr/p8468/',
@@ -42,6 +51,14 @@ const Myhighlights = () => {
     highlightSum += item.highlight.length;
   })
   const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const [shareClicked, setShareClicked] = useState<boolean>(false);
+  const handleShare = () => {
+    setShareClicked(!shareClicked);
+  }
+  const [moreClicked, setMoreClicked] = useState<boolean>(false);
+  const handleMore = () => {
+    setMoreClicked(!moreClicked);
+  }
   return (
     <div className='home-right-side'>
       <div className='page'>
@@ -152,9 +169,59 @@ const Myhighlights = () => {
                       
                     </div>
                     <div className='main-content-button-container'>
-                      <div className='main-content-button'><button className='share'/></div>
+                      <div className='main-content-button'>
+                        {shareClicked ? (
+                          //share dropdown open
+                          <div>
+                            <button className='share' onClick={e => handleShare()}/>
+                            <div className='share-dropdown'>
+                              <ul className='dropdown'>
+                                <li className='dropdown-content'>
+                                  <span className='dropdown-icon full-text'/>
+                                  Full text with highlights
+                                </li>
+                                <li className='dropdown-content'>
+                                  <span className='dropdown-icon highlight-summary'/>
+                                  Highlight Summary
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        ):( //share dropdown closed
+                          <div>
+                            <button className='share' onClick={e => handleShare()}/>
+                          </div>
+                        )}
+                        </div>
                       <div className='main-content-button'><button className='export'/></div>
-                      <div className='main-content-button'><button className='more'/></div>
+                        <div className='main-content-button'>
+                        {moreClicked ? (
+                          //more dropdown open
+                          <div>
+                            <button className='more' onClick={e => handleMore()}/>
+                            <div className='more-dropdown'>
+                              <ul className='dropdown'>
+                                <li className='dropdown-content'>
+                                  <span className='dropdown-icon edit-title'/>
+                                  Edit a Title
+                                </li>
+                                <li className='dropdown-content'>
+                                  <span className='dropdown-icon view-origin'/>
+                                  View Original
+                                </li>
+                                <li className='dropdown-content'>
+                                  <span className='dropdown-icon move-trash'/>
+                                  Move to Trash
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        ):( //moredropdown closed
+                          <div>
+                            <button className='more' onClick={e => handleMore()}/>
+                          </div>
+                        )}
+                        </div>
                     </div>
                   </div>
                   <div className='main-content-seperator'/>
@@ -164,7 +231,7 @@ const Myhighlights = () => {
         </div>
       </div>
       <div className='right-menu'>
-        <RightMenu_HL/>
+        <RightMenu_HL url_id='3'/>
       </div>
     </div>
   );

@@ -1,0 +1,144 @@
+.detail-header {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 11;
+  width: 712px;
+  height: 40px;
+  background-color: #fff;
+  z-index: 6;
+  padding: 0 16px;
+}
+.shrink-container {
+  display: flex;
+  align-items: center;
+}
+.shrink-container .back {
+  background-image: url(https://getliner.com/src/images/back-header.svg);
+  width: 32px;
+  height: 32px;
+  background-size: 24px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  border-radius: 50%;
+  background-position: 2px !important;
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+}
+.detail-page-container {
+  margin-bottom: 120px;
+  padding: 0 16px;
+}
+.detail-img {
+  width: 680px;
+  height: 240px;
+  border-radius: 4px;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+.page-contents {
+  margin-top: 11px;
+}
+.page-abstract {
+  width: 680px;
+  border-bottom: 1px solid #eef1f4;
+}
+.page-abstract .title {
+  font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC",
+    sans-serif;
+  font-weight: 700;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  font-size: 24px;
+  letter-spacing: normal;
+  color: #222;
+  font-family: "Roboto", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC",
+    sans-serif;
+  word-wrap: break-word;
+  margin: 0 0 16px;
+  cursor: text;
+  white-space: pre-line;
+}
+.page-detail {
+  padding: 32px 0;
+}
+.page-detail .highlight-content {
+  display: block;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  font-family: "Roboto", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC",
+    sans-serif;
+  font-weight: 400;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: normal;
+  color: #555;
+  word-wrap: break-word;
+  background-color: transparent;
+  margin: 0 16px;
+  font-size: 16px;
+}
+.highlight-percentage {
+  font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC",
+    sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.3px;
+  color: #969aa2;
+  margin-top: 4px;
+}
+.view-original-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 680px;
+  height: 48px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.35px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.page-info .info {
+  display: flex;
+  margin-bottom: 24px;
+}
+.page-info .info .info-index {
+  width: 114px;
+  font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC",
+    sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.35px;
+  color: #969aa2;
+}
+.page-info .info .info-content {
+  width: 566px;
+  font-family: "Roboto", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC",
+    sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #555;
+  margin: 0;
+}
