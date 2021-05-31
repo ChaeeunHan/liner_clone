@@ -12,6 +12,8 @@ import Menu from './Menu';
 import Foryou from './Foryou';
 import MyHighlights from './Myhighlights';
 import Detail from './Detail';
+import './Modal.css'
+import './Dropdown.css'
 
 const App = () => {
   return (

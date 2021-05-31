@@ -11,6 +11,7 @@ import infoAnimation from './lotties/myhighlights.json';
 import './Myhighlights.css';
 import RightMenu_HL from './RightMenu_HL';
 import Modal from './Modal';
+import Modal_export from './Modal_export';
 
 interface MyContent{
   id: string,
@@ -84,6 +85,28 @@ const Myhighlights = () => {
   const focusNotSearch = () =>{
     setSearchFocus(false);
   }
+  //main content hover
+  const [mainHover, setMainHover] = useState(false);
+  const hoverOnMain = () =>{
+    setMainHover(true);
+  }
+  const notHoverOnMain = () =>{
+    setMainHover(false);
+  }
+  //check hover
+  const [checkHover, setCheckHover] = useState(false);
+  const hoverOnCheck = () =>{
+    setCheckHover(true);
+  }
+  const notHoverOnCheck = () =>{
+    setCheckHover(false);
+  }
+  // page check
+  const [pageCheck, setPageCheck] = useState(false);
+  const checkPage = () =>{
+    setPageCheck(!pageCheck);
+    console.log(pageCheck);
+  }
   return (
     <div className='home-right-side'>
       <div className='page'>
@@ -143,34 +166,7 @@ const Myhighlights = () => {
             </div>
           </Modal>
           <Modal open={ exportModalOpen } close={ closeExportModal } header="Export">
-            <div className='gap'></div>
-            <div className='text'>Export Your Highlights</div>
-            <div className='circular-button-container'>
-              <div className='button-container'>
-                <button className='circular-button word'>
-                  <span className='export-button-hover'></span>
-                </button>
-                <span className='button-title'>Word</span>
-              </div>
-              <div className='button-container'>
-                <button className='circular-button onenote'>
-                  <span className='export-button-hover'></span>
-                </button>
-                <span className='button-title'>Onenote</span>
-              </div>
-              <div className='button-container'>
-                <button className='circular-button evernote'>
-                  <span className='export-button-hover'></span>
-                </button>
-                <span className='button-title'>Evernote</span>
-              </div>
-              <div className='button-container'>
-                <button className='circular-button plain-text'>
-                  <span className='export-button-hover'></span>
-                </button>
-                <span className='button-title'>Text</span>
-              </div>
-            </div>
+            <Modal_export/>
           </Modal>
           <div className='myhighlight-header-container'>
             <div className='sticky-header'>
@@ -241,23 +237,29 @@ const Myhighlights = () => {
               </span>
             </span>
           ):(
-            <div className='myhighlights-header'>
-              <div className='tab-container'>
-                <button className='highlight-button'>Highlights</button>
-                <button className='tags-button'>Tags</button>
+            pageCheck?(
+              <div className="page-selected">
+                
               </div>
-              <div className='filter-container'>
-                <div className='filter-button-container'>
-                  <button className='filter-button' onClick={openFilterModal}/>
+            ):(
+              <div className='myhighlights-header'>
+                <div className='tab-container'>
+                  <button className='highlight-button'>Highlights</button>
+                  <button className='tags-button'>Tags</button>
                 </div>
-                <div className='search-container'>
-                  <div className='input-container'>
-                    <input className='search-bar' placeholder='Search my highlights' type='text' onFocus={focusOnSearch}/>
-                    <span className='search-img'/>
+                <div className='filter-container'>
+                  <div className='filter-button-container'>
+                    <button className='filter-button' onClick={openFilterModal}/>
+                  </div>
+                  <div className='search-container'>
+                    <div className='input-container'>
+                      <input className='search-bar' placeholder='Search my highlights' type='text' onFocus={focusOnSearch}/>
+                      <span className='search-img'/>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            )
           )}
           <div className='main-contents'>
             {mainContents.map((item)=>{
@@ -265,10 +267,10 @@ const Myhighlights = () => {
               const month: number = item.savedDate.getMonth();
               const date: number = item.savedDate.getDate();
               return(
-                <div className='main-content-container'>
+                <div className={pageCheck?('main-content-container selected'):('main-content-container')} onMouseEnter={hoverOnMain} onMouseLeave={notHoverOnMain}>
                   <div className='main-content-upside'>
                     <div className='main-content-text'>
-                      <div className='main-content-title'>{item.title}</div>
+                      <NavLink to={`detail/${item.id}`}><div className='main-content-title'>{item.title}</div></NavLink>
                         {item.highlight.map((highlight)=>{
                           highlightColor={borderColor: highlight.color};
                           return(
@@ -360,6 +362,20 @@ const Myhighlights = () => {
                     </div>
                   </div>
                   <div className='main-content-seperator'/>
+                  {mainHover && !pageCheck &&
+                    <button 
+                    className='page-select default' 
+                    style={{backgroundColor:checkHover?('rgb(198, 203, 211)'):('rgb(211, 218, 227)')}}
+                    onClick={checkPage}
+                    />
+                  }
+                  {pageCheck &&
+                    <button 
+                    className='page-select default' 
+                    style={{backgroundColor:'rgb(0, 189, 184)'}}
+                    onClick={checkPage}
+                    />
+                  }
                 </div>
             )})}
           </div>

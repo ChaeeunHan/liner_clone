@@ -29,6 +29,14 @@
   align-items: center;
   position: relative;
 }
+.tags-dropdown-container {
+  top: 4px;
+  display: inline;
+  position: relative;
+}
+.main-content-button-container .add-tags {
+  margin: 0;
+}
 .detail-page-container {
   margin-bottom: 120px;
   padding: 0 16px;
@@ -69,7 +77,6 @@
 }
 .page-detail .highlight-content {
   display: block;
-  flex-direction: column;
   align-items: flex-start;
   width: 100%;
   font-family: "Roboto", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC",
@@ -141,4 +148,26 @@
   letter-spacing: normal;
   color: #555;
   margin: 0;
+}
+
+/*my highlights*/
+.myhighlight-container .highlight-content {
+  font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC",
+    sans-serif;
+  font-weight: 400;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  font-size: 16px;
+  letter-spacing: normal;
+  color: #333;
+  font-family: "Roboto", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC",
+    sans-serif;
+  width: 100%;
+  margin: 0 0 0 16px;
+  word-wrap: break-word;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  min-height: 32px;
 }

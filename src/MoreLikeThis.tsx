@@ -1,12 +1,8 @@
-import React, { useState } from 'react';
-import {NavLink} from 'react-router-dom';
+import React from 'react';
+import './MoreLikeThis.css'
+import { NavLink } from 'react-router-dom';
 import ButtonContainer_FY from './ButtonContainer_FY';
-import Modal from './Modal';
-import MoreLikeThis from './MoreLikeThis';
 
-interface Props{
-  url_id: string;
-}
 interface Content{
   id: string;
   title: string;
@@ -18,9 +14,11 @@ interface Content{
   sourceImg: string;
   authors?: string;
 }
+interface Props{
+  url_id: string;
+}
 
-
-const Detail_FY = ({url_id}:Props) => {
+const MoreLikeThis = ({url_id}:Props) => {
   const mainContents: Content[] =[
     {
       id: '2004',
@@ -44,64 +42,42 @@ const Detail_FY = ({url_id}:Props) => {
     }
   ]
   return (
-    <div>
-      {mainContents.map((item)=>{
-        if(item.id === url_id){
-          return(
-            <div>
-              <div className='detail-header'>
-                <NavLink className='shrink-container' to={'/home'}>
-                  <button className='back circular-button'></button>
-                </NavLink>
-                <ButtonContainer_FY url={item.url}/>
-              </div>
-              <div className='detail-page-container'>
-                {item.img!==undefined &&
-                  <img className='detail-img' src={item.img}/>
+    <div className='relevant-pages'>
+      <div className='relevant-page-title'>More Like This</div>
+      <div className='main-contents'>
+        {mainContents.map((item)=>{
+          if (item.id !== url_id){
+            return(
+              <div className='main-content-container'>
+                {item.tags!==undefined && 
+                  <div className='main-content-tags-container'>
+                    {item.tags.map((tag)=>{
+                        return(<div className='main-content-tag'>{tag}</div>)
+                    })}
+                  </div>
                 }
-                <div className='page-contents'>
-                  <div className='page-abstract'>
-                    <div className='title'>{item.title}</div>
-                    <div className='main-content-source-container'>
-                      <img className='main-content-srcImg' src={item.sourceImg}/>
-                      <a className='main-content-url' href={item.url}>{item.url.split('/')[2]}</a>
-                    </div>
+                <div className='main-content-upside'>
+                  <div className='main-content-text'>
+                    <NavLink to={`/detail/${item.id}`}><div className='main-content-title'>{item.title}</div></NavLink>
+                    <div className='main-content-highlight'>{item.highlight}</div>
                   </div>
-                  <div className='page-detail'>
-                    <div className='highlight'>
-                      <div className='highlight-index'/>
-                      <div className='highlight-content'>
-                        {item.highlight}
-                        <div className='highlight-percentage'>Highlighted by LINER</div>
-                      </div>
-                    </div>
-                  </div>
-                  <a target="_blank" className='view-original-button grey-border-button' href={item.url}>View Original</a>
-                  {(item.description!==undefined || item.authors!==undefined) &&
-                    <div className='page-info'>
-                      {item.description!==undefined &&
-                        <div className='info'>
-                          <div className='info-index'>Description</div>
-                          <div className='info-content'>{item.description}</div>
-                        </div>
-                      }
-                      {item.authors!==undefined &&
-                        <div className='info'>
-                          <div className='info-index'>Authors</div>
-                          <div className='info-content'>{item.authors}</div>
-                        </div>
-                      }
-                    </div>
+                  {item.img!==undefined &&
+                    <img className='main-content-img' src={item.img}/>
                   }
                 </div>
+                <div className='main-content-downside'>
+                  <div className='main-content-source-container'>
+                    <img className='main-content-srcImg' src={item.sourceImg}/>
+                    <a className='main-content-url' href={item.url}>{item.url.split('/')[2]}</a>
+                  </div>
+                  <ButtonContainer_FY url={item.url}/>
+                </div>
+                <div className='main-content-seperator'/>
               </div>
-            </div>
-          )
-        }
-      })}
-      <MoreLikeThis url_id={url_id}/>
+      )}})}
+      </div>
     </div>
   );
 };
 
-export default Detail_FY;
+export default MoreLikeThis;

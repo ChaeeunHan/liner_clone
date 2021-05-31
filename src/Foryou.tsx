@@ -4,6 +4,7 @@ import infoAnimation from './lotties/home_signal.json';
 import './Foryou.css';
 import RightMenu_FY from './RightMenu_FY';
 import { NavLink } from 'react-router-dom';
+import ButtonContainer_FY from './ButtonContainer_FY'
 
 interface Language{
   lang: string;
@@ -168,7 +169,7 @@ const Foryou = () => {
                   }
                   <div className='main-content-upside'>
                     <div className='main-content-text'>
-                      <NavLink to={`detail/${item.id}`}><div className='main-content-title'>{item.title}</div></NavLink>
+                      <NavLink to={`/detail/${item.id}`}><div className='main-content-title'>{item.title}</div></NavLink>
                       <div className='main-content-highlight'>{item.highlight}</div>
                     </div>
                     {item.img!==undefined &&
@@ -180,11 +181,37 @@ const Foryou = () => {
                       <img className='main-content-srcImg' src={item.sourceImg}/>
                       <a className='main-content-url' href={item.url}>{item.url.split('/')[2]}</a>
                     </div>
-                    <div className='main-content-button-container'>
-                      <div className='main-content-button'><button className='save'/></div>
-                      <div className='main-content-button'><button className='share'/></div>
-                      <div className='main-content-button'><button className='more'/></div>
-                    </div>
+                    <ButtonContainer_FY url={item.url}/>
+                    {/* <div className='main-content-button-container'>
+                      {saveClicked&& 
+                        <div className='tags-dropdown-container'>
+                          <button className='add-tags'>+ Add tags</button>
+                        </div>
+                      }
+                      <div className='main-content-button'><button className={saveClicked?('save clicked'):('save')} onClick={handleSave}/></div>
+                      <div className='main-content-button'><button className='share' onClick={openShareModal}/></div>
+                      <div className='main-content-button'>
+                        {moreClicked ?(
+                          <div>
+                            <button className='more' onClick={handleMore}/>
+                            <div className='share-dropdown'>
+                              <ul className='dropdown'>
+                                <li className='dropdown-content'>
+                                  <span className='dropdown-icon more-like'/>
+                                  More pages like this
+                                </li>
+                                <li className='dropdown-content'>
+                                  <span className='dropdown-icon fewer-like'/>
+                                  Fewer pages like this
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        ):(
+                          <button className='more' onClick={handleMore}/>
+                        )}
+                      </div>
+                    </div> */}
                   </div>
                   <div className='main-content-seperator'/>
                 </div>

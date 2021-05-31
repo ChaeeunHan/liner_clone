@@ -51,6 +51,18 @@ const RightMenu_HL = ({url_id}:Props) => {
       { id: 20, title:'c++ - Performance difference of getline operating with istream and FILE* - Stack Overflow', source:'stackoverflow.com'},
     ]
   },
+  {
+    id: '1000',
+    alsoRead:[
+      { id: 21, title:'async와 await - 모던 JavaScript 튜토리얼', source:'ko.javascript.info'},
+      { id: 22, title:'aria-label', source:'velog.io'},
+      { id: 23, title:'마크다운(Markdown) 사용법 · GitHub', source:'gist.github.com'},
+      { id: 24, title:'kakao developers - 카카오 로그인', source:'developers.kakao.com'},
+      { id: 25, title:'Singleton 패턴 - Regyu Dev log', source:'www.regyu.dev'},
+      { id: 26, title:"React 프로젝트의 디렉토리 구조. 리액트와 Flux를 도구로 SPA ...", source:'fourwingsy.medium.com'},
+      { id: 27, title:'Browser VS Node Event Loop 차이. Event Loop란? | by yoeubi | Medium', source:'yoeubi28.medium.com'},
+    ]
+  },
   ]
   let thisPage: string = window.location.href.split('/')[3];
   return (
@@ -61,7 +73,6 @@ const RightMenu_HL = ({url_id}:Props) => {
           <div className='border'/>
           <div className='trending-content'>
             {recommendList.map((item)=>{
-              console.log(item.id === url_id)
               if(item.id === url_id){
                 return(
                   item.alsoRead.map((read)=>{
@@ -78,7 +89,6 @@ const RightMenu_HL = ({url_id}:Props) => {
                           <div className='source'>{read.source}</div>
                         </div>
                     )} else{
-                      console.log(read.title)
                       return(
                         <div className='pages-content'>
                           <div className='title'>{read.title}</div>

@@ -11,6 +11,7 @@ const Detail = (props: RouteComponentProps<{ id: string;}>,) => {
       <div className='page'>
         {props.match.params.id[0]=='1'?(//detail for 'My Highlights'
           <Detail_HL url_id={props.match.params.id}/>
+          // <div>hello</div>
         ):( ///detail for 'For You'
           <Detail_FY url_id={props.match.params.id}/>
         )}

@@ -54,6 +54,16 @@
 .highlights {
   margin-left: 10px;
 }
+/*page checked header*/
+.page-selected {
+  width: 624px;
+  padding: 0;
+  height: 40px;
+  top: 64px;
+  margin-top: 40px;
+}
+
+/*basic header*/
 .myhighlights-header {
   position: sticky;
   position: -webkit-sticky;
@@ -361,285 +371,18 @@
   font-size: 11px;
   font-weight: 400;
 }
-.dropdown-icon {
-  background-repeat: no-repeat;
-  background-size: 24px 24px;
-  width: 24px;
-  height: 24px;
-  margin-right: 8px;
-}
-.dropdown-content .full-text {
-  background-image: url(https://getliner.com/src/images/summary-dropdown.svg);
-}
-.dropdown-content .highlight-summary {
-  background-image: url(https://getliner.com/src/images/fulltext-dropdown.svg);
-}
-.dropdown-content .edit-title {
-  background-image: url(https://getliner.com/src/images/edit-header.svg);
-}
-.dropdown-content .view-origin {
-  background-image: url(https://getliner.com/src/images/original-dropdown.svg);
-}
-.dropdown-content .move-trash {
-  background-image: url(https://getliner.com/src/images/delete-tooltip.svg);
-}
-/* filter modal*/
-.filter-title {
-  font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC",
-    sans-serif;
-  font-weight: 700;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  font-size: 14px;
-  letter-spacing: -0.35px;
-  color: #969aa2;
-  margin-bottom: 16px;
-  margin-top: 24px;
-  margin-left: 16px;
-}
-.input-outer-container {
-  width: 336px;
-  position: relative;
-  margin: 0 auto;
-  border-radius: 8px;
-}
-.input-inner-container {
-  padding: 8px 4px;
-  border-radius: 8px;
-  height: 40px;
-  overflow-x: hidden;
-  background-color: rgb(246, 248, 250);
-}
-.tag-small-icon {
-  background-repeat: no-repeat;
-  background-size: 24px 24px;
-  width: 24px;
-  height: 24px;
-  background-image: url(https://getliner.com/src/images/tag-small.svg);
+
+.page-select {
   position: absolute;
-}
-.saved-tags-filter {
-  margin-left: 36px;
-  display: flex;
-  flex-direction: row;
-  right: 0;
-  overflow-x: scroll;
-}
-.tag-search {
-  font-family: "Roboto", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC",
-    sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: -0.35px;
-  color: #555;
+  top: 15px;
+  right: 20px;
+  width: 24px;
   height: 24px;
-  width: 100vw;
-}
-.tag-search::placeholder {
-  opacity: 0.3;
-  font-size: 14px;
-  color: #333333;
-}
-.color-list {
-  list-style: none;
-  margin-top: 8px;
-  padding: 0;
-}
-.color-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 368px;
-  height: 32px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-.color-container:hover {
-  background-color: #f6f8fa;
-}
-.pallete {
-  width: 20px;
-  height: 20px;
-  margin-left: 16px;
-  display: flex;
   border-radius: 50%;
-  flex-shrink: 0;
-}
-.pallete.yellow {
-  background-color: #ffff83;
-}
-.pallete.mint {
-  background-color: #a6ffe9;
-}
-.name {
-  font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC",
-    sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 20px;
-  letter-spacing: -0.35px;
-  color: #52565d;
-  margin-left: 16px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  flex-shrink: 1;
-}
-.name.selected {
-  color: #00bdb8;
-}
-.web-filter {
-  width: 20px;
-  margin-left: 16px;
-  height: 20px;
-  background-size: 20px;
-  background-image: url(https://getliner.com/src/images/web-filter.svg);
-}
-.web-filter.selected {
-  background-image: url(https://getliner.com/src/images/web-filter-selected.svg);
-}
-.pdf-filter {
-  margin-left: 16px;
-  width: 20px;
-  height: 20px;
-  background-size: 20px;
-  background-image: url(https://getliner.com/src/images/pdf-filter.svg);
-}
-.pdf-filter.selected {
-  background-image: url(https://getliner.com/src/images/pdf-filter-selected.svg);
-}
-.button-icon-container {
-  display: flex;
-  align-items: center;
-  width: 20px;
-  height: 10px;
-}
-.type.selected {
-  margin-left: auto;
-  position: absolute;
-  right: 32px;
-  width: 14px;
-  height: 10px;
-}
-.button-icon-container .selected {
-  background-image: url(https://getliner.com/src/images/check.svg);
-  background-repeat: no-repeat;
+  background-image: url(https://getliner.com/src/images/check-light.svg);
   background-size: 14px 10px;
-  width: 14px;
-  height: 10px;
-  margin-left: 4px;
-}
-.seperator {
-  width: 368px;
-  height: 1px;
-  margin: 16px 0 7px;
-  border: 1px solid #eef1f4;
-}
-.modal-footer {
-  padding: 0 4px;
-  display: flex;
-  align-items: center;
-  height: 40px;
-}
-.modal-footer .reset {
-  font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC",
-    sans-serif;
-  font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 24px;
-  font-size: 14px;
-  letter-spacing: -0.35px;
-  color: #787d86;
-  border-radius: 8px;
-  padding: 8px 12px;
-}
-.modal-footer .reset.disabled {
-  opacity: 0.3;
-  cursor: default;
-}
-.modal-footer .apply {
-  font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC",
-    sans-serif;
-  font-weight: 700;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 24px;
-  font-size: 16px;
-  letter-spacing: -0.4px;
-  color: #00bdb8;
-  margin-left: auto;
-  padding: 8px 12px;
-  border-radius: 8px;
-  display: flex;
-}
-.modal-footer .apply:hover {
-  background-color: #e5f8f7;
-}
-/*export modal*/
-.modal-detail .gap {
-  margin-bottom: 16px;
-}
-.modal-detail .text {
-  padding: 0 16px;
-}
-.button-container {
-  width: 53px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-right: 16px;
-}
-.circular-button-container {
-  margin-left: 8px;
-  padding-top: 24px;
-  padding-bottom: 24px;
-  display: flex;
-}
-.circular-button {
-  margin-left: 0;
+  background-position: 50%;
   background-repeat: no-repeat;
-  background-size: 36px 36px;
-  width: 36px;
-  height: 36px;
-}
-.circular-button.word {
-  background-image: url(https://getliner.com/src/images/word.svg);
-}
-.circular-button.onenote {
-  background-image: url(https://getliner.com/src/images/onenote.svg);
-}
-.circular-button.evernote {
-  background-image: url(https://getliner.com/src/images/evernote.svg);
-}
-.circular-button.plain-text {
-  background-image: url(https://getliner.com/src/images/text.svg);
-}
-.circular-button:hover .export-button-hover {
-  display: block;
-  height: 36px;
-  z-index: 10;
-  width: 36px;
-  border-radius: 50%;
-  background-color: rgba(39, 43, 49, 0.1);
-}
-.button-title {
-  font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC",
-    sans-serif;
-  font-size: 12px;
-  font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: -0.3px;
-  text-align: center;
-  color: #787d86;
-  display: block;
-  margin-top: 8px;
+  z-index: 0;
+  cursor: pointer;
 }
