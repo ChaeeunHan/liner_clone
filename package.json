@@ -39,17 +39,5 @@
   "devDependencies": {
     "@types/react": "^17.0.8",
     "@types/react-lottie": "^1.2.5"
-  },
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "main": "index.tsx",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ChaeeunHan/liner_clone.git"
-  },
-  "author": "chaeeun",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ChaeeunHan/liner_clone/issues"
-  },
-  "homepage": "https://github.com/ChaeeunHan/liner_clone#readme"
+  }
 }
