@@ -239,7 +239,15 @@ const Myhighlights = () => {
           ):(
             pageCheck?(
               <div className="page-selected">
-                
+                <div className='selected-left-container'>
+                  <button className='unselect-button circular-button' onClick={checkPage}/>
+                  1 page selected
+                </div>
+                <div className='selected-right-container'>
+                  <div className='main-content-button'><button className='export' onClick={openExportModal}/></div>
+                  <button className='tags-dropdown circular-button'/>
+                  <div className='main-content-button'><button className='move-to-trash circular-button'/></div>
+                </div>
               </div>
             ):(
               <div className='myhighlights-header'>

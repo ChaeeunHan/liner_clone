@@ -56,13 +56,60 @@
 }
 /*page checked header*/
 .page-selected {
-  width: 624px;
   padding: 0;
   height: 40px;
   top: 64px;
   margin-top: 40px;
+  position: sticky;
+  position: -webkit-sticky;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  z-index: 11;
 }
-
+.selected-left-container {
+  display: flex;
+  align-items: center;
+  font-family: "Montserrat", "Noto Sans KR", "Noto Sans JP", "Noto Sans SC",
+    sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: -0.35px;
+  color: #52565d;
+}
+.unselect-button.circular-button {
+  width: 32px;
+  height: 32px;
+  background-size: 24px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  border-radius: 50%;
+  background-image: url(https://getliner.com/src/images/close-light.svg);
+  margin-right: 8px;
+}
+.tags-dropdown.circular-button {
+  width: 32px;
+  height: 32px;
+  background-size: 24px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  border-radius: 50%;
+  background-image: url(https://getliner.com/src/images/addtags-header.svg);
+}
+.move-to-trash.circular-button {
+  width: 32px;
+  height: 32px;
+  background-size: 24px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  border-radius: 50%;
+  background-image: url(https://getliner.com/src/images/delete-header.svg);
+  position: relative;
+}
 /*basic header*/
 .myhighlights-header {
   position: sticky;
