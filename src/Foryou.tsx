@@ -54,7 +54,6 @@ const Foryou = () => {
         tmp.push(item)
       }else{
         tmp.push({lang: item.lang, clicked: !item.clicked})
-        console.log(tmp)
       }
     })
     setLanguagesChecked(tmp);
@@ -182,36 +181,6 @@ const Foryou = () => {
                       <a className='main-content-url' href={item.url}>{item.url.split('/')[2]}</a>
                     </div>
                     <ButtonContainer_FY url={item.url}/>
-                    {/* <div className='main-content-button-container'>
-                      {saveClicked&& 
-                        <div className='tags-dropdown-container'>
-                          <button className='add-tags'>+ Add tags</button>
-                        </div>
-                      }
-                      <div className='main-content-button'><button className={saveClicked?('save clicked'):('save')} onClick={handleSave}/></div>
-                      <div className='main-content-button'><button className='share' onClick={openShareModal}/></div>
-                      <div className='main-content-button'>
-                        {moreClicked ?(
-                          <div>
-                            <button className='more' onClick={handleMore}/>
-                            <div className='share-dropdown'>
-                              <ul className='dropdown'>
-                                <li className='dropdown-content'>
-                                  <span className='dropdown-icon more-like'/>
-                                  More pages like this
-                                </li>
-                                <li className='dropdown-content'>
-                                  <span className='dropdown-icon fewer-like'/>
-                                  Fewer pages like this
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        ):(
-                          <button className='more' onClick={handleMore}/>
-                        )}
-                      </div>
-                    </div> */}
                   </div>
                   <div className='main-content-seperator'/>
                 </div>
