@@ -60,12 +60,29 @@ const Myhighlights = () => {
   const handleMore = () => {
     setMoreClicked(!moreClicked);
   }
+  //filter modal
   const [ filterModalOpen, setFilterModalOpen ] = useState(false);
   const openFilterModal = () => {
       setFilterModalOpen(true);
   }
   const closeFilterModal = () => {
       setFilterModalOpen(false);
+  }
+  //export modal
+  const [ exportModalOpen, setExportModalOpen ] = useState(false);
+  const openExportModal = () => {
+      setExportModalOpen(true);
+  }
+  const closeExportModal = () => {
+      setExportModalOpen(false);
+  }
+  //searchbox focus
+  const [searchFocus, setSearchFocus] = useState(false);
+  const focusOnSearch = () =>{
+    setSearchFocus(true);
+  }
+  const focusNotSearch = () =>{
+    setSearchFocus(false);
   }
   return (
     <div className='home-right-side'>
@@ -74,6 +91,85 @@ const Myhighlights = () => {
           <Modal open={ filterModalOpen } close={ closeFilterModal } header="Filter">
             <div className='filter-title'>
               Tags
+            </div>
+            <div className='tags-section'>
+              <div className='input-outer-container'>
+                <div className='input-inner-container'>
+                  <div className='tag-small-icon'></div>
+                  <div className='saved-tags-filter'>
+                    <input className='tag-search' type='text' placeholder='Search tags'/>
+                  </div>
+                </div>
+              </div>
+              <div className='filter-sections'>
+                <ul className='color-list'>
+                  <div className='filter-title'>
+                    Color Filter
+                  </div>
+                  <li className='color-container'>
+                    <span className='pallete yellow'></span>
+                    <span className='name'>Yellow</span>
+                  </li>
+                  <li className='color-container'>
+                    <span className='pallete mint'></span>
+                    <span className='name'>Mint</span>
+                  </li>
+                </ul>
+                <ul className='color-list'>
+                  <div className='filter-title'>
+                    Page Type
+                  </div>
+                  <li className='color-container'>
+                    <span className='web-filter selected'></span>
+                    <span className='name selected'>Web</span>
+                    <div className='button-icon-container'>
+                      <span className='type selected'></span>
+                    </div>
+                  </li>
+                  <li className='color-container'>
+                    <span className='pdf-filter selected'></span>
+                    <span className='name selected'>PDF</span>
+                    <div className='button-icon-container'>
+                      <span className='type selected'></span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div className='seperator'></div>
+              <div className='modal-footer'>
+                <button className='reset disabled'>Reset</button>
+                <button className='apply' onClick={closeFilterModal}>Apply</button>
+              </div>
+            </div>
+          </Modal>
+          <Modal open={ exportModalOpen } close={ closeExportModal } header="Export">
+            <div className='gap'></div>
+            <div className='text'>Export Your Highlights</div>
+            <div className='circular-button-container'>
+              <div className='button-container'>
+                <button className='circular-button word'>
+                  <span className='export-button-hover'></span>
+                </button>
+                <span className='button-title'>Word</span>
+              </div>
+              <div className='button-container'>
+                <button className='circular-button onenote'>
+                  <span className='export-button-hover'></span>
+                </button>
+                <span className='button-title'>Onenote</span>
+              </div>
+              <div className='button-container'>
+                <button className='circular-button evernote'>
+                  <span className='export-button-hover'></span>
+                </button>
+                <span className='button-title'>Evernote</span>
+              </div>
+              <div className='button-container'>
+                <button className='circular-button plain-text'>
+                  <span className='export-button-hover'></span>
+                </button>
+                <span className='button-title'>Text</span>
+              </div>
             </div>
           </Modal>
           <div className='myhighlight-header-container'>
@@ -120,23 +216,49 @@ const Myhighlights = () => {
               </div>
             </div>
           </div>
-          <div className='myhighlights-buttons-container'>
-            <div className='tab-container'>
-              <button className='highlight-button'>Highlights</button>
-              <button className='tags-button'>Tags</button>
-            </div>
-            <div className='filter-container'>
-              <div className='filter-button-container'>
-                <button className='filter-button' onClick={openFilterModal}/>
+          {searchFocus?(
+            <span>
+              <div className='myhighlights-header'>
+                <div className='search-focus-container'>
+                  <div className='search-option-container'>
+                    <div className='dropdown-container'>
+                      <button className='search-option-button'>
+                        <span className='search-option'>Search Option</span>
+                        <span className='filter-icon'></span>
+                      </button>
+                    </div>
+                  </div>
+                  <div className='search-container'>
+                    <div className='input-container'>
+                      <input className='search-bar' autoFocus={true} placeholder='Search my highlights' type='text' onFocus={focusOnSearch} />
+                      <button className='cancel-search-button circular-button' onClick={focusNotSearch}/>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className='search-container'>
-                <div className='input-container'>
-                  <input className='search-bar' placeholder='Search my highlights' type='text'/>
-                  <span className='search-img'/>
+              <span className='search-message'>
+                Search results from my highlights
+              </span>
+            </span>
+          ):(
+            <div className='myhighlights-header'>
+              <div className='tab-container'>
+                <button className='highlight-button'>Highlights</button>
+                <button className='tags-button'>Tags</button>
+              </div>
+              <div className='filter-container'>
+                <div className='filter-button-container'>
+                  <button className='filter-button' onClick={openFilterModal}/>
+                </div>
+                <div className='search-container'>
+                  <div className='input-container'>
+                    <input className='search-bar' placeholder='Search my highlights' type='text' onFocus={focusOnSearch}/>
+                    <span className='search-img'/>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          )}
           <div className='main-contents'>
             {mainContents.map((item)=>{
               const year: number = item.savedDate.getFullYear();
@@ -206,7 +328,7 @@ const Myhighlights = () => {
                           </div>
                         )}
                         </div>
-                      <div className='main-content-button'><button className='export'/></div>
+                      <div className='main-content-button'><button className='export' onClick={openExportModal}/></div>
                         <div className='main-content-button'>
                         {moreClicked ? (
                           //more dropdown open
