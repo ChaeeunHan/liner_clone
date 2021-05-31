@@ -1,70 +1,27 @@
-# Getting Started with Create React App
+# Clone coding Liner's web page
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+아우름 플래닛의 LINER 홈페이지 [https://getliner.com/home] 를 간단히 클론 코딩하였습니다.
 
-## Available Scripts
+파일의 디렉토리에서 `yarn start` 를 통해 실행 가능합니다.
 
-In the project directory, you can run:
 
-### `yarn start`
+## Files description
+파일명|설명|추가 설명|
+---|---|---|
+App.tsx|Header + Menu + Route(Foryou, Myhighlights, Detail)||
+ButtonContainer_FY.tsx|For You, Detail_FY, MoreLikeThis 페이지에서 이용되는 세 개의 버튼|<img width="91" alt="스크린샷 2021-05-31 오후 4 59 43" src="https://user-images.githubusercontent.com/67953109/120161180-fedcc780-c231-11eb-8aa7-7871f032ee81.png"><br/> 여러 페이지에서 이용되어 하나의 컴포넌트로 제작
+Detail_FY.tsx|For You 페이지에서 글의 title을 누르면 뜨는 상세 페이지| 각 글마다 고유 ID를 가지고 있다고 가정하여 적절한 글의 detail 출력
+Detail_HL.tsx|My Highlights 페이지에서 글의 titled을 누르면 뜨는 상세 페이지| 각 글마다 고유 ID를 가지고 있다고 가정하여 적절한 글의 detail 출력
+Detail.tsx|상황에 맞춰 Detail_FY과 Detail_HL 중 하나 + RightMenu_HL|
+Foryou.tsx|첫 화면, 메뉴에서 For you 선택시 뜨는 페이지|
+Header.tsx|LINER 페이지의 header|
+Menu.tsx|좌측의 메뉴|
+Modal_export.tsx|export 버튼 클릭시 나오는 모달창|<img width="28" alt="스크린샷 2021-05-31 오후 5 13 23" src="https://user-images.githubusercontent.com/67953109/120162601-8545d900-c233-11eb-80da-a5f44583417e.png"> (export 버튼)
+Modal.tsx|modal창의 header와 닫는 버튼. Props children으로 content가 정해짐|
+MoreLikeThis.tsx|각 글의 Detail 페이지 하단에 뜨는 추천 글|
+Myhighlights.tsx|메뉴에서 My Highlights 선택시 뜨는 페이지|
+RightMenu_FY.tsx|For You 페이제에서 우측에 뜨는 'Trending Keywords', 'Trending Pages'|
+RightMenu_HL.tsx|My Highlihgt 페이지, 각 글의 Detail 페이지에서 우측에 뜨는 'People Also Read'|
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## More
+package.json에 dependency가 적혀있습니다.
