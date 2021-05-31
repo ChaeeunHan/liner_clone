@@ -2,7 +2,7 @@
 
 아우름 플래닛의 LINER 홈페이지 [https://getliner.com/home] 를 간단히 클론 코딩하였습니다.
 
-파일의 디렉토리에서 `yarn start` 하면 실행 가능합니다.
+파일의 디렉토리에서 `yarn start` 를 통해 실행 가능합니다.
 
 
 ## Files description
