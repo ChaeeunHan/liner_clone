@@ -24,7 +24,6 @@ interface Highlight{
 }
 
 const Detail_HL = ({url_id}:Props) => {
-  const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   const myContents: MyContent[] =[
     {
       id: '1000',
@@ -35,17 +34,18 @@ const Detail_HL = ({url_id}:Props) => {
       savedDate: new Date('2021-05-28'),
     },
   ]
-  
+  //to change month from number to string
+  const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  //share icon clicked
   const [shareClicked, setShareClicked] = useState<boolean>(false);
   const handleShare = () => {
     setShareClicked(!shareClicked);
   }
-
+  //more icon clicked
   const [moreClicked, setMoreClicked] = useState<boolean>(false);
   const handleMore = () => {
     setMoreClicked(!moreClicked);
   }
-
   //export modal
   const [ exportModalOpen, setExportModalOpen ] = useState(false);
   const openExportModal = () => {
@@ -62,7 +62,6 @@ const Detail_HL = ({url_id}:Props) => {
   const closeTrashModal = () => {
       setTrashModalOpen(false);
   }
-
   let highlightColor={borderColor: 'rgb(0, 0, 0)'};
   return (
     <div>
@@ -79,6 +78,7 @@ const Detail_HL = ({url_id}:Props) => {
           </div>
         </div>
       </Modal>
+
       <div className='detail-header'>
         <NavLink className='shrink-container' to={'/highlights'}>
           <button className='back circular-button'></button>
@@ -120,7 +120,7 @@ const Detail_HL = ({url_id}:Props) => {
         if(item.id === url_id){
           return(
             <div className='detail-page-container'>
-              {item.img!==undefined &&
+              {item.img!==undefined && //img exists
                 <img className='detail-img' src={item.img}/>
               }
               <div className='page-contents'>
@@ -130,7 +130,7 @@ const Detail_HL = ({url_id}:Props) => {
                     <div className='tag-icon'/>
                     <div className='saved-tags'>
                       {item.tags?.map((tag)=>{
-                        return(
+                        return( //tag exists
                         <div className='saved-tag'>
                           <a className='saved-tag-link'>{tag}</a>
                         </div>

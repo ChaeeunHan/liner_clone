@@ -57,7 +57,8 @@ const ButtonContainer_FY = ({url}:Props) => {
           </div>
         </span>
       </Modal>
-      {saveClicked&& 
+
+      {saveClicked && //save icon clicked
         <div className='tags-dropdown-container'>
           <button className='add-tags'>+ Add tags</button>
         </div>
@@ -65,7 +66,7 @@ const ButtonContainer_FY = ({url}:Props) => {
       <div className='main-content-button'><button className={saveClicked?('save clicked'):('save')} onClick={handleSave}/></div>
       <div className='main-content-button'><button className='share' onClick={openShareModal}/></div>
       <div className='main-content-button'>
-        {moreClicked ?(
+        {moreClicked ?( //more icon clicked
           <div>
             <button className='more' onClick={handleMore}/>
             <div className='share-dropdown'>
@@ -81,7 +82,7 @@ const ButtonContainer_FY = ({url}:Props) => {
               </ul>
             </div>
           </div>
-        ):(
+        ):(//more icon not clicked
           <button className='more' onClick={handleMore}/>
         )}
       </div>

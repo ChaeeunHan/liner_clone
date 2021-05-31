@@ -35,10 +35,10 @@ const RightMenu_FY = () => {
     { id: 3, title:'Times Tables Rock Stars: Play', source:'play.ttrockstars.com'},
     { id: 4, title:'ongMaker - Chrome Music Lab', source:'musiclab.chromeexperiments.com'},
   ]
-  let thisPage: string = window.location.href.split('/')[3];
   return (
     <div className='rightmenu-container'>
       <div className='highlights-rightmenu'>
+
         <div className='trending-container'>
           <div className='trending-title'>Trending Keywords</div>
           <div className='border'/>
@@ -52,6 +52,7 @@ const RightMenu_FY = () => {
             </div>
           </div>
         </div>
+        
         <div className='trending-container'>
           <div className='trending-title'>Trending Pages</div>
           <div className='border'/>

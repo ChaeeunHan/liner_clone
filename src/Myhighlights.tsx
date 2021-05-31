@@ -1,11 +1,5 @@
 import React, { useState, CSSProperties } from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Switch,
-  NavLink
-} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import Lottie from 'react-lottie';
 import infoAnimation from './lotties/myhighlights.json';
 import './Myhighlights.css';
@@ -27,6 +21,7 @@ interface Highlight{
   color: string;
   content: string;
 }
+
 const Myhighlights = () => {
   const defaultOptions = {
     loop: true,
@@ -48,15 +43,19 @@ const Myhighlights = () => {
       savedDate: new Date('2021-05-28'),
     },
   ]
+  //calculate the num of my highlights
   let highlightSum: number = 0;
-  mainContents.map((item)=>{//calculate the num of my highlights
+  mainContents.map((item)=>{
     highlightSum += item.highlight.length;
   })
+  //to change month from number to string
   const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  // share icon
   const [shareClicked, setShareClicked] = useState<boolean>(false);
   const handleShare = () => {
     setShareClicked(!shareClicked);
   }
+  //more icon
   const [moreClicked, setMoreClicked] = useState<boolean>(false);
   const handleMore = () => {
     setMoreClicked(!moreClicked);
@@ -212,7 +211,7 @@ const Myhighlights = () => {
               </div>
             </div>
           </div>
-          {searchFocus?(
+          {searchFocus?(//cursor on the Search box
             <span>
               <div className='myhighlights-header'>
                 <div className='search-focus-container'>
@@ -236,8 +235,8 @@ const Myhighlights = () => {
                 Search results from my highlights
               </span>
             </span>
-          ):(
-            pageCheck?(
+          ):(//cursor not on the Search box
+            pageCheck?( //page checked
               <div className="page-selected">
                 <div className='selected-left-container'>
                   <button className='unselect-button circular-button' onClick={checkPage}/>
@@ -249,7 +248,7 @@ const Myhighlights = () => {
                   <div className='main-content-button'><button className='move-to-trash circular-button'/></div>
                 </div>
               </div>
-            ):(
+            ):(//page not checked
               <div className='myhighlights-header'>
                 <div className='tab-container'>
                   <button className='highlight-button'>Highlights</button>
@@ -373,8 +372,10 @@ const Myhighlights = () => {
                   {mainHover && !pageCheck &&
                     <button 
                     className='page-select default' 
-                    style={{backgroundColor:checkHover?('rgb(198, 203, 211)'):('rgb(211, 218, 227)')}}
+                    style={{backgroundColor:checkHover?('rgb(198, 203, 211)'):('rgb(220, 224, 230)')}}
                     onClick={checkPage}
+                    onMouseEnter={hoverOnCheck}
+                    onMouseLeave={notHoverOnCheck}
                     />
                   }
                   {pageCheck &&

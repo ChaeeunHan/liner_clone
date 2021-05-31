@@ -15,7 +15,7 @@ interface Props{
   url_id: string;
 }
 const RightMenu_HL = ({url_id}:Props) => {
-  const recommendList: RecommendList[] = [{
+  const recommendList: RecommendList[] = [{ //recommend list differs by the id of the page
     id: '3',
     alsoRead:[
       { id: 0, title:'CSS Multiple Backgrounds', source:'www.w3schools.com'},
@@ -64,7 +64,6 @@ const RightMenu_HL = ({url_id}:Props) => {
     ]
   },
   ]
-  let thisPage: string = window.location.href.split('/')[3];
   return (
     <div className='rightmenu-container'>
       <div className='highlights-rightmenu'>
@@ -73,11 +72,11 @@ const RightMenu_HL = ({url_id}:Props) => {
           <div className='border'/>
           <div className='trending-content'>
             {recommendList.map((item)=>{
-              if(item.id === url_id){
+              if(item.id === url_id){ //get the reocommended list for this page
                 return(
                   item.alsoRead.map((read)=>{
                     if(read.tags !== undefined){
-                      return(
+                      return(//tag exists
                         <div className='pages-content'>
                           <div className='pages-tag-list'>
                             {read.tags?.map((t)=>{
@@ -88,7 +87,7 @@ const RightMenu_HL = ({url_id}:Props) => {
                           <div className='title'>{read.title}</div>
                           <div className='source'>{read.source}</div>
                         </div>
-                    )} else{
+                    )} else{//tag not exists
                       return(
                         <div className='pages-content'>
                           <div className='title'>{read.title}</div>

@@ -46,10 +46,10 @@ const MoreLikeThis = ({url_id}:Props) => {
       <div className='relevant-page-title'>More Like This</div>
       <div className='main-contents'>
         {mainContents.map((item)=>{
-          if (item.id !== url_id){
+          if (item.id !== url_id){ //to not recommend the same page as the current one
             return(
               <div className='main-content-container'>
-                {item.tags!==undefined && 
+                {item.tags!==undefined && //tag exists
                   <div className='main-content-tags-container'>
                     {item.tags.map((tag)=>{
                         return(<div className='main-content-tag'>{tag}</div>)
@@ -61,7 +61,7 @@ const MoreLikeThis = ({url_id}:Props) => {
                     <NavLink to={`/detail/${item.id}`}><div className='main-content-title'>{item.title}</div></NavLink>
                     <div className='main-content-highlight'>{item.highlight}</div>
                   </div>
-                  {item.img!==undefined &&
+                  {item.img!==undefined && //img exists
                     <img className='main-content-img' src={item.img}/>
                   }
                 </div>
